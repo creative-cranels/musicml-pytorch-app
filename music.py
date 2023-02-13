@@ -188,7 +188,7 @@ def get_hubert():
     download_file("https://dl.fbaipublicfiles.com/hubert/hubert_base_ls960.pt", "hubert/hubert_base_ls960.pt")
     download_file("https://dl.fbaipublicfiles.com/hubert/hubert_base_ls960_L9_km500.bin", "hubert/hubert_base_ls960_L9_km500.bin")
 
-# get_hubert()
+get_hubert()
 
 wav2vec = HubertWithKmeans(
     checkpoint_path = './hubert/hubert_base_ls960.pt',
