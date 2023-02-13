@@ -311,7 +311,12 @@ musiclm = MusicLM(
     mulan_embed_quantizer = quantizer
 )
 
-music = musiclm(['the crystalline sounds of the piano in a ballroom']) # torch.Tensor
+title = sys.argv[2]
+if len(title) < 5:
+  title = 'the crystalline sounds of the piano in a ballroom'
+
+print("title:", title)
+music = musiclm([title]) # torch.Tensor
 
 output_path = "out.wav"
 sample_rate = 44100
