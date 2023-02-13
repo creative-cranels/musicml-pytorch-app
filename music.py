@@ -11,6 +11,7 @@ from torch.utils.data import Dataset
 
 from musiclm_pytorch import MuLaN, MuLaNTrainer, AudioSpectrogramTransformer, TextTransformer, MuLaNEmbedQuantizer, MusicLM
 from audiolm_pytorch import SoundStream, SoundStreamTrainer, HubertWithKmeans, SemanticTransformer, SemanticTransformerTrainer, HubertWithKmeans, CoarseTransformer, CoarseTransformerWrapper, CoarseTransformerTrainer, FineTransformer, FineTransformerWrapper, FineTransformerTrainer, AudioLM
+import sys
 
 def download_clip(
     video_identifier,
@@ -188,7 +189,9 @@ def get_hubert():
     download_file("https://dl.fbaipublicfiles.com/hubert/hubert_base_ls960.pt", "hubert/hubert_base_ls960.pt")
     download_file("https://dl.fbaipublicfiles.com/hubert/hubert_base_ls960_L9_km500.bin", "hubert/hubert_base_ls960_L9_km500.bin")
 
-get_hubert()
+download_hubert = sys.argv[1]
+if download_hubert == "1":
+  get_hubert()
 
 wav2vec = HubertWithKmeans(
     checkpoint_path = './hubert/hubert_base_ls960.pt',
